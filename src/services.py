@@ -44,7 +44,7 @@ def fetch_and_store_competitors(parent_asin, domain, geo_location, pages = 2):
 
     competitor_asins = list(set(
         r.get("asin") for r in  all_results
-        if r.get("asin") and  r.get("asin") != parent_asin
+        if r.get("asin") and  r.get("asin") != parent_asin and r.get("title")
     ))
 
     product_details = scrape_multiple_products(competitor_asins[:20], geo_location, domain)
